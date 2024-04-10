@@ -1,0 +1,49 @@
+.download {
+    width: 250px;
+    height: 84px;
+    display: block;
+
+    &:hover {
+        filter: brightness(1.4);
+        transition: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 0 24px rgba(255, 107, 55, 0.5);
+    }
+}
+
+.small {
+    width: 280px;
+    height: 48px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #fff;
+    transition: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+    line-height: 48px;
+    text-decoration: none;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.wrapper {
+    
+}
+
+.song {
+    margin-top: 12px;
+    width: 321px;
+    cursor: pointer;
+    height: 78px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-weight: 100;
+    text-align: right;
+    font-size: 1.5rem;
+    padding-right: 40px;
+    background: url(https://mememori-game.com/assets/en/img/top/btn_youtube.png) no-repeat left top / 100% 100%;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}

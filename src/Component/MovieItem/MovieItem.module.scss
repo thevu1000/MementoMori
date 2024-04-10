@@ -1,0 +1,37 @@
+.mv-item {
+    margin: 12px;
+    width: 460px;
+    height: 263px;
+    overflow: hidden;
+
+    .mv-thumb {
+        transition: transform 0.3s;
+    }
+
+    &:hover .mv-thumb {
+        transform: scale(1.1);
+    }
+
+    &:hover .play-btn {
+        filter: brightness(1.2);
+    }
+}
+
+
+.mv-overlay {
+    position: relative;
+    top: -140%;
+    width: 100%;
+
+    & img {
+        width: 100%;
+    }
+}
+
+.play-btn {
+    position: relative;
+    z-index: 1;
+    left: 4%;
+    top: -175px;
+    height: 100px;
+}

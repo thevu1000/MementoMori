@@ -1,0 +1,54 @@
+html {
+    overflow-y: overlay;
+  
+    *::-webkit-scrollbar {
+      width: 1px;
+      height: 1px;
+    }
+  
+    *::-webkit-scrollbar {
+      width: 0.586vw;
+      height: 0.586vw;
+    }
+  
+    *::-webkit-scrollbar-thumb {
+      background-color: black;
+      border-radius: 0;
+      box-shadow: 0;
+    }
+  
+    *::-webkit-scrollbar-thumb {
+      background-color: black;
+      border-radius: 0;
+      box-shadow: 0;
+    }
+  
+    *::-webkit-scrollbar-track {
+      background-color: silver;
+      border-radius: 0;
+      box-shadow: 0;
+    }
+  
+    *::-webkit-scrollbar-track {
+      background-color: silver;
+      border-radius: 0;
+      box-shadow: 0;
+    }
+
+    font-family: "Cinzel", serif;
+  }
+
+  body {
+    overflow-y: hidden;
+  }
+  
+  .App {
+    // height: 7100px;
+  }
+
+  a {
+    text-decoration: none;
+
+  }
+
+  

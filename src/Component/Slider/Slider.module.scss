@@ -1,0 +1,17 @@
+:root {
+    --swiper-navigation-color: #000;
+    --swiper-pagination-color: #fff;
+  }
+  
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    width: 778px;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    border-radius: 8px;
+}
