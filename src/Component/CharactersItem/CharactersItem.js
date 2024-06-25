@@ -4,13 +4,12 @@ import Button from '../Button';
 
 const cx = classNames.bind(styles);
 
-function CharactersItem({ data }) {
-    const image = data.link
-    console.log(image);
+function CharactersItem({ data, className }) {
     return (
-        <Button className={cx('character-wrap')}>
-            <img alt="/" src={`https://mememori-game.com${data.link}`} className={cx('character-img')} />
+        <Button onClick={() => { window.scrollTo(0, 0); window.reload(); }} to={`/profile/${data.id}`} className={cx('character-wrap', className)}>
+            <img alt="/" src={`${data.avatar}`} className={cx('character-img')} />
         </Button>
+
     );
 }
 

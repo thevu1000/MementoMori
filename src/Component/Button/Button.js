@@ -19,6 +19,7 @@ function Button({
     children,
     song=false,
     className,
+    scrollToElement,
     leftIcon,
     rightIcon,
     onClick,

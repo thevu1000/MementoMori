@@ -1,0 +1,50 @@
+.speaker-item {
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.memory-item {
+    text-align: left;
+    background-color: #1f2425;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 32px 0;
+
+    .chapter-name {
+        font-family: 'cinzel';
+    }
+
+    p {
+        margin: 12px 0;
+        padding: 0 12px;
+        font-family: "NotoSerifJp";
+    }
+}
+
+.memory-content {
+    display: flex;
+    align-items: center;
+    border: 2px solid #555;
+    border-radius: 8px;
+    svg {
+        margin-left: 12px;
+    }
+    margin-top: 12px;
+}
+
+.memory-wrap {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+
+.speaker-item {
+    &.playing {
+        animation: pulse 0.5s infinite ease-in-out alternate;
+    }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+  }

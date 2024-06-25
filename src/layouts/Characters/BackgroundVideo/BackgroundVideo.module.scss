@@ -1,0 +1,25 @@
+// BackgroundVideo.module.scss
+.background-vid {
+    position: relative;
+}
+
+.character-title {
+    font-family: 'Cinzel', serif;
+    position: absolute;
+    top: 12%;
+    left: 14%;
+    font-size: 40px;
+}
+
+.video-wrap {
+    position: relative;
+    width: 100vw;
+   height: auto;
+    background-color: #e9e1d5;
+}
+
+.no-video {
+    width: 1920px;
+    height: 1080px;
+    background-color: #e9e1d5;
+}

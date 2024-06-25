@@ -31,7 +31,7 @@
 
 .song {
     margin-top: 12px;
-    width: 321px;
+    width: 300px;
     cursor: pointer;
     height: 78px;
     background-color: transparent;
@@ -41,8 +41,7 @@
     font-weight: 100;
     text-align: right;
     font-size: 1.5rem;
-    padding-right: 40px;
-    background: url(https://mememori-game.com/assets/en/img/top/btn_youtube.png) no-repeat left top / 100% 100%;
+    
     &:hover {
         background-color: rgba(255, 255, 255, 0.2);
     }

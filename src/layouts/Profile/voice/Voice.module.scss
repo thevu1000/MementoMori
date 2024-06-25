@@ -1,0 +1,62 @@
+.speaker-item {
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.voice-item {
+    text-align: left;
+    background-color: #1f2425;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    // border-radius: 8px;
+
+    .chapter-name {
+        font-family: 'cinzel';
+    }
+
+    p {
+        margin: 12px 0;
+        font-family: "NotoSerifJp";
+    }
+    border: 2px solid #555;
+
+}
+
+.voice-title {
+    border-right: 2px solid #555;
+    height: 100%;
+    flex: 1;
+    text-align: center;
+}
+
+.voice-content {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    flex: 9;
+    svg {
+        margin: 0 12px;
+    }
+}
+
+.voice-paragraph {
+    font-size: 20px;
+}
+
+.voice-wrap {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+
+.speaker-item {
+    &.playing {
+        animation: pulse 0.5s infinite ease-in-out alternate;
+    }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+  }

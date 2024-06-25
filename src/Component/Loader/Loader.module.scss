@@ -1,0 +1,36 @@
+.loader-wrap {
+    display: block !important;
+    background-color: #eae4da;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(10px);
+}
+
+.loader {
+    width: 163px;
+    height: 168px;
+    margin: -84px -82px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: fixed;
+    right: 50%;
+    top: 50%;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    background: url('https://mememori-game.com/assets/img/loading.png') no-repeat left top / cover;
+
+    span {
+        animation: blink-animation linear 1s infinite;
+    }
+}
+
+@keyframes blink-animation {
+    0% { opacity: 1; } /* Tại thời điểm ban đầu, hiển thị đối tượng */
+    50% { opacity: 0; } /* 50% của thời gian, ẩn đối tượng */
+    100% { opacity: 1; } /* 100% của thời gian, hiển thị đối tượng */
+}

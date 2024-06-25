@@ -1,0 +1,167 @@
+.profile-wrap {
+    text-align: left;
+    margin-bottom: 30px;
+
+    .profile-header {
+        font-family: 'Cinzel';
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+
+
+        &::after {
+            content: "";
+            display: block;
+            width: 16%;
+            height: 1px;
+            background-color: white;
+        }
+    }
+
+    .profile-content {
+        font-family: "NotoSerifJp";
+        font-size: 20px;
+        margin-top: 12px;
+    }
+}
+
+.wrap {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+
+.Skills-wrap {
+    text-align: left;
+    margin-bottom: 30px;
+
+    .Skills-header {
+        font-family: 'Cinzel';
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+
+
+        &::after {
+            content: "";
+            display: block;
+            width: 16%;
+            height: 1px;
+            background-color: white;
+        }
+    }
+
+    .Skill-item-wrap {
+        .Skill-item {
+            border: 1px solid #4c452a;
+            margin: 12px 0;
+
+            * {
+                padding: 4px;
+            }
+
+            .skill-header {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .skill-name {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .skill-cd {
+                min-width: 100px;
+                .cd-icon {
+                    margin-top: 7px;
+
+                    svg {
+                        height: 23px;
+                    }
+                }
+            }
+
+            .skill-desc {
+                text-align: justify;
+
+                span {
+                    color: #c46855;
+                }
+
+                strong {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+
+.skill-cd {
+    display: flex;
+    align-items: center;
+}
+
+.weapon-wrap {
+    text-align: left;
+    margin-bottom: 30px;
+
+    .weapon-header {
+        font-family: 'Cinzel';
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+
+
+        &::after {
+            content: "";
+            display: block;
+            width: 16%;
+            height: 1px;
+            background-color: white;
+        }
+    }
+
+    .weapon-item {
+        border: 1px solid #4c452a;
+        margin: 12px 0;
+
+        * {
+            padding: 4px;
+        }
+    }
+
+    .weapon-header-wrap {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .skill-cd {
+            width: 53px;
+        }
+
+        .weapon-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+
+
+    }
+}
+
+.weapon-desc {
+    text-align: justify;
+
+    .unlock-able {
+        span {
+            color: #c46855;
+        }
+    }
+
+    strong {
+        padding: 0;
+    }
+}

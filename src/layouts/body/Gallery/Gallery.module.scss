@@ -1,0 +1,64 @@
+.wrapper {
+    content: '';
+    width: 100%;
+    min-height: 1080px;
+    background: url(https://mememori-game.com/assets/en/img/top/bg_gallery@pc.webp);
+    z-index: 1;
+    position: relative;
+    top: -300px;
+
+}
+
+.gallery-wrapper {
+    position: absolute;
+    top: 14%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gallery-title {
+    color: black;
+    font-family: 'Cinzel', serif;
+    font-weight: 100;
+    font-size: 3rem;
+    margin: 12px 0 12px 0 ;
+    background-size: 100%;
+    animation: fadeIn linear 2s;
+}
+
+.characters-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70%;
+    min-height: 550px;
+    animation: slideIn linear 2s;
+}
+
+.description {
+    font-family: "Noto Serif JP", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}

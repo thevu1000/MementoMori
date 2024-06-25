@@ -1,40 +1,23 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames/bind';
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
+import $ from 'jquery'; // Import jQuery
+import 'slick-carousel/slick/slick'; // Import Slick Carousel
+import 'slick-carousel/slick/slick.css'; // Import Slick Carousel CSS
+import 'slick-carousel/slick/slick-theme.css'; // Import Slick Carousel Theme CSS
 import styles from './Slider.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Slider({ data }) {
     useEffect(() => {
-        const swiper = new Swiper('.swiper', {
-            centeredSlides: true,
-            direction: 'horizontal',
-            loop: true,
-
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+        $(document).ready(() => {
+            $('.swiper-wrapper').not('.slick-initialized').slick(); // Initialize Slick Carousel when DOM is ready
         });
-
-        const stylesheet = document.styleSheets[0];
-        stylesheet.insertRule(
-            '.swiper-pagination-bullet-active { background: #000 !important;}',
-            0,
-        );
     }, []); // Empty dependency array ensures this effect only runs once after initial render
 
     return (
         <div className={cx('swiper')}>
-            <div className={cx('swiper-wrapper')}>
+            <div className={cx('swiper-wrapper')} data-slick='{ "variableWidth": true, "slidesToShow": 1, "slidesToScroll": 1, "centerMode": true}'>
                 {data.map((image, index) => (
                     <div key={index} className={cx('swiper-slide')}>
                         <img className={cx('image')} src={image.image} alt="image" />

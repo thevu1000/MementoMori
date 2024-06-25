@@ -1,0 +1,103 @@
+.footer {
+    position: relative;
+    z-index: 3;
+    padding: 2.719vw 0 015px;
+    font-size: 0;
+    line-height: 1;
+    background-color: #0a0a0a;
+    min-height: 100px;
+    color: #fff;
+    text-align: center;
+}
+
+.wrap {
+    margin: 0 auto;
+    clear: both;
+    zoom: 1;
+    position: relative;
+    z-index: 100;
+    padding: 0;
+}
+
+.cinzel {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    margin: 0;
+    letter-spacing: 0.1em;
+    margin-top: 50px;
+}
+
+h2 {
+
+    + p {
+        margin-top: 20px;
+        font-size: 20px;
+        color: white;
+        font-family: 'Cinzel', serif;
+    }
+}
+
+
+
+.logo {
+    position: relative;
+    height: 29px;
+    width: 73px;
+    margin-top: 0;
+    left: 47.5%;
+}
+
+a {
+    color: white;
+
+    & b {
+        font-size: 10px;
+        margin-top: 20px;
+    }
+}
+
+.sns {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    & a {
+        & img {
+            width: 20px;
+            margin: 0 12px;
+            margin-top: 36px;
+        }
+    }
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Cinzel', serif;
+
+    & li {
+        margin: 0 12px;
+        text-decoration: underline;
+        & a {
+            font-size: 12px;
+        }
+    }
+}
+
+.support {
+    font-size: 13px;
+    font-family: 'Cinzel', serif;
+}
+
+.logo-link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.copyrights {
+    font-size: 10px;
+    font-family: 'Cinzel', serif;
+}
