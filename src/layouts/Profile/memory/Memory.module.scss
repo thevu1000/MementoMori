@@ -48,3 +48,23 @@
     from { transform: scale(1); }
     to { transform: scale(1.2); }
   }
+
+  @media screen and (max-width: 768.98px) {
+    .memory-wrap {
+        width: 100%;
+        margin: 0;
+        padding: 0 10px;
+        margin-top: 20px;
+
+        .chapter-name {
+            font-size: 18px;
+        }
+        .memory-item {
+            .memory-content {
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+  }

@@ -33,6 +33,10 @@ const CharacterDetails = ({ data }) => {
                     </div>
                 </div>
                 <div className={cx('youtube')}>
+                    <a>
+                        <img src='https://mememori-game.com/assets/en/img/gallery/btn_youtube.png'/>
+                        <span>Youtube</span>
+                    </a>
                 <Button to={`/profile/${data.id}`} className={cx('special-btn')}>
                     CHI TIẾT
                 </Button>

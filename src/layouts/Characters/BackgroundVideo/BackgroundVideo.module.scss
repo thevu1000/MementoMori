@@ -23,3 +23,9 @@
     height: 1080px;
     background-color: #e9e1d5;
 }
+
+@media screen and (max-width: 768.98px) {
+    .background-vid {
+        display: none;
+    }
+}

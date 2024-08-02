@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { database } from '~/firebase';
 import styles from './Profile.module.scss';
 import classNames from 'classnames/bind';
+import ReactPaginate from 'react-paginate';
 import Overview from '~/layouts/Profile/overview/Overview';
 import BackgroundVideo from '~/layouts/Characters/BackgroundVideo';
 import CharacterDetails from '~/layouts/Characters/CharacterDetails';
@@ -21,6 +22,9 @@ function GalleryPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [searchValue, setSearchValue] = useState('');
     const [activeTab, setActiveTab] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [previousPage, setPreviousPage] = useState(0);
+    const itemsPerPage = 12;
 
     useEffect(() => {
         const dbRef = ref(database);
@@ -40,7 +44,20 @@ function GalleryPage() {
     }, []);
 
     const handleSearch = (event) => {
-        setSearchValue(event.target.value);
+        const newValue = event.target.value;
+        if (newValue === '') {
+            setCurrentPage(previousPage);
+        } else {
+            if (searchValue === '') {
+                setPreviousPage(currentPage); // Save the current page only if it's a new search
+            }
+            setCurrentPage(0); // Reset the current page to 0 when search value changes
+        }
+        setSearchValue(newValue);
+    };
+
+    const handlePageClick = ({ selected }) => {
+        setCurrentPage(selected);
     };
 
     const filteredCharacters = useMemo(() => {
@@ -55,11 +72,15 @@ function GalleryPage() {
 
     const tabs = useMemo(() => {
         return character ? [
-            { title: 'TỔNG QUAN', content: <Overview datas={character}/> },
-            { title: 'KÝ ỨC', content: <Memory datas={character.memory}/>},
-            { title: 'LỒNG TIẾNG', content: <Voice datas={character.voice_line}/> }
+            { title: 'TỔNG QUAN', content: <Overview datas={character} /> },
+            { title: 'KÝ ỨC', content: <Memory datas={character.memory} /> },
+            { title: 'LỒNG TIẾNG', content: <Voice datas={character.voice_line} /> }
         ] : [];
     }, [character]);
+
+    const offset = currentPage * itemsPerPage;
+    const currentItems = filteredCharacters.slice(offset, offset + itemsPerPage);
+    const pageCount = Math.ceil(filteredCharacters.length / itemsPerPage);
 
     return (
         <div>
@@ -77,15 +98,18 @@ function GalleryPage() {
 
                     <div className={cx('profile-wrap')}>
                         <div className={cx('tab')}>
-                            {tabs.map((tab, index) => (
-                                <button
-                                    key={index}
-                                    className={cx({ active: index === activeTab })}
-                                    onClick={() => setActiveTab(index)}
-                                >
-                                    {tab.title}
-                                </button>
-                            ))}
+                            <div className='row'>
+                                {tabs.map((tab, index) => (
+                                    <div key={index} className="col-4 col-lg-4">
+                                        <button
+                                            className={classNames('btn', 'btn-outline-primary', { active: index === activeTab })}
+                                            onClick={() => setActiveTab(index)}
+                                        >
+                                            {tab.title}
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         <div className={cx('tab-content')}>
                             {tabs.map((tab, index) => (
@@ -107,9 +131,26 @@ function GalleryPage() {
                             />
                         </div>
                         <div className={cx('char-wrapper')}>
-                            {filteredCharacters.map(character => (
-                                <CharactersItem key={character.id} data={character} />
-                            ))}
+                            <div className='row'>
+                                {currentItems.map(character => (
+                                    <div key={character.id} className='col-4 col-lg-2'>
+                                        <CharactersItem data={character} />
+                                    </div>
+                                ))}
+                            </div>
+                            <ReactPaginate
+                                previousLabel={'Previous'}
+                                nextLabel={'Next'}
+                                breakLabel={'...'}
+                                breakClassName={'break-me'}
+                                pageCount={pageCount}
+                                marginPagesDisplayed={2}
+                                pageRangeDisplayed={5}
+                                onPageChange={handlePageClick}
+                                containerClassName={'pagination'}
+                                subContainerClassName={'pages pagination'}
+                                activeClassName={'active'}
+                            />
                         </div>
                     </div>
                 </>

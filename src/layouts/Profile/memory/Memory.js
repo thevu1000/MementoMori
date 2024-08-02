@@ -10,16 +10,24 @@ import { faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function Memory({ datas }) {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRefs = useRef([]);
+    const [isPlaying, setIsPlaying] = useState(null);
+    const audioRefs = useRef({});
 
-    const handlePlay = (index) => {
+    const handlePlay = (index, src) => {
+        if (audioRefs.current[index]) {
+            audioRefs.current[index].pause();
+            audioRefs.current[index].currentTime = 0;
+        }
+        
+        const audio = new Audio(src);
+        audioRefs.current[index] = audio;
+        
+        audio.play();
         setIsPlaying(index);
-        audioRefs.current[index].play();
-    };
 
-    const handleAudioEnded = () => {
-        setIsPlaying(false);
+        audio.onended = () => {
+            setIsPlaying(null);
+        };
     };
 
     return (
@@ -34,19 +42,16 @@ function Memory({ datas }) {
                                 <FontAwesomeIcon
                                     className={cx('speaker-item', { 'playing': isPlaying === overallIndex })}
                                     icon={faVolumeHigh}
-                                    onClick={() => handlePlay(overallIndex)}
+                                    onClick={() => handlePlay(overallIndex, entry.voice_src)}
                                 />
                                 <p className={cx('memory-paragraph')}>{entry.text}</p>
-                                <audio ref={(ref) => (audioRefs.current[overallIndex] = ref)} src={entry.voice_src} onEnded={handleAudioEnded}></audio>
                             </div>
-                        )
-    
+                        );
                     })}
                 </div>
             ))}
         </div>
     );
-    
 }
 
 export default Memory;

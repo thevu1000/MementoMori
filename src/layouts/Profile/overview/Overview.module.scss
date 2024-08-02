@@ -165,3 +165,89 @@
         padding: 0;
     }
 }
+
+@media screen and (max-width: 768.98px) {
+    .profile-wrap {
+        .profile-header {
+            font-size: 18px;
+        }
+
+        .profile-content {
+            font-size: 12px;
+        }
+    }
+
+    .Skills-wrap {
+        .Skills-header {
+            font-size: 18px;
+            flex-direction: column;
+        }
+
+        .Skill-item-wrap {
+            .Skill-item {
+                .skill-img {
+                
+                }
+
+                .skill-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    position: relative;
+                    .skill-name {
+                        font-size: 12px;
+                        right: 10%;
+                        top: 50%;
+                        transform: translateY(-100%);
+                        position: absolute;
+                    }
+                    .skill-cd {
+                        font-size: 12px;
+                    }
+                    
+                }
+
+                .skill-desc {
+                    font-size: 12px;
+                }
+            }
+            
+        }
+    }
+
+    .weapon-wrap {
+        .weapon-header {
+            font-size: 18px;
+        }
+        .weapon-header-wrap {
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            .weapon-name {
+                font-size: 10px;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-100%);
+                .weapon-main {
+                    font-size: 12px;
+                }
+            }
+        }
+        .weapon-desc {
+            h4 {
+                font-size: 14px;
+            }
+            .unlock-able {
+                font-size: 12px;
+            }
+        }
+        
+    }
+
+    .wrap {
+        width: 100%;
+        margin: 0;
+        padding: 0 10px;
+        margin-top: 20px;
+    }
+}

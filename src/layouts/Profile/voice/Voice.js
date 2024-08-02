@@ -10,19 +10,23 @@ function Voice({ datas }) {
   const [isPlaying, setIsPlaying] = useState(null);
   const audioRefs = useRef([]);
 
-  const handlePlay = (index) => {
-    if (isPlaying !== null && audioRefs.current[isPlaying]) {
-      audioRefs.current[isPlaying].pause();
-      audioRefs.current[isPlaying].currentTime = 0;
+  const handlePlay = (index, src) => {
+    if (audioRefs.current[index]) {
+      audioRefs.current[index].pause();
+      audioRefs.current[index].currentTime = 0;
     }
 
+    const audio = new Audio(src);
+    audioRefs.current[index] = audio;
+
+    audio.play();
     setIsPlaying(index);
-    audioRefs.current[index].play();
+
+    audio.onended = () => {
+      setIsPlaying(null);
+    };
   };
 
-  const handleAudioEnded = () => {
-    setIsPlaying(null);
-  };
 
   return (
     <div className={cx("voice-wrap")}>
@@ -41,14 +45,10 @@ function Voice({ datas }) {
                       playing: isPlaying === index,
                     })}
                     icon={faVolumeHigh}
-                    onClick={() => handlePlay(index)}
+                    onClick={() => handlePlay(index, content.voice)}
                   />
                   <p className={cx("voice-paragraph")}>{content.text}</p>
-                  <audio
-                    ref={(ref) => (audioRefs.current[index] = ref)}
-                    src={content.voice}
-                    onEnded={handleAudioEnded}
-                  ></audio>
+
                 </>
               ) : (
                 <>
@@ -57,7 +57,7 @@ function Voice({ datas }) {
                     icon={faVolumeMute}
                   />
                   <p className={cx("voice-paragraph", "disabled")}>
-                  {content.text}
+                    {content.text}
                   </p>
                 </>
               )}

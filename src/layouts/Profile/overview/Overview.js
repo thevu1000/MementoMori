@@ -58,9 +58,9 @@ function Overview({ datas }) {
                                 )}
 
                                 <div className={cx('unlock-able')}>
-                                    {skill.levels.map((level, index) => (
+                                    {skill.levels && (skill.levels.map((level, index) => (
                                         <p key={index}><strong>(LV {level.level})</strong> {level.changes}<span>{level.unlock_condition}</span></p>
-                                    ))}
+                                    )))}
                                 </div>
                             </div>
 

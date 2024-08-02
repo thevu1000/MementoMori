@@ -8,6 +8,12 @@ const BgmControl = ({ data }) => {
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = 0.2; // Đặt âm lượng khi audioRef đã sẵn sàng
+        }
+    }, []);
+
     const handlePlay = () => {
         setIsPlaying(true);
         if (audioRef.current) {
@@ -39,4 +45,3 @@ const BgmControl = ({ data }) => {
 };
 
 export default BgmControl;
-    

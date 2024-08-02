@@ -71,6 +71,14 @@
     margin-bottom: 49px;
     display: flex;
     justify-content: center;
+
+    @media screen and (min-width: 1024px) {
+        a {
+            &:first-child {
+                display: none;
+            }
+        }
+    }
 }
 
 .video-btn {
@@ -116,7 +124,7 @@
     .ver-name {
         margin: 0;
 
-        + .header {
+        +.header {
             margin-top: 12px;
             top: 0;
         }
@@ -144,5 +152,104 @@
     &:hover {
         background-image: url(https://mememori-game.com/assets/en/img/top/btn_tab_active.png);
         color: black;
+    }
+}
+
+@media screen and (max-width: 768.98px) {
+    .illust {
+        position: static;
+        margin-top: 50px;
+
+        img {
+            width: 50%;
+        }
+    }
+
+    .character-text {
+        background: url(https://mememori-game.com/assets/en/img/gallery/bg_charactertext.png) no-repeat left top / 100% auto;
+        height: 417px;
+        width: 100%;
+        font-weight: 700;
+        padding-left: 15px;
+        left: 0;
+        margin-top: 30px;
+
+        &::before {
+            display: none;
+        }
+
+        .youtube {
+            margin: 30px 0 30px 0;
+            justify-content: flex-start;
+
+            button {
+                display: none;
+
+            }
+
+            a {
+                display: inline-block;
+                position: relative;
+                width: 50%;
+                &:last-child {
+                    display: none;
+                }
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                span {
+                    display: inline-flex;
+                    font-size: 2.734vw;
+                    color: #fff;
+                    letter-spacing: 0.06em;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    justify-content: flex-end;
+                    align-items: center;
+                    padding: 0 4.395vw 0 0;
+                }
+            }
+        }
+
+        .ver-wrap {
+            font-size: 17px;
+            margin-right: 0;
+            margin-top: 52px;
+            align-items: flex-start;
+
+            .ver-name {
+                width: 50%;
+                text-align: left;
+            }
+        }
+
+        .header {
+            font-size: 30px;
+            top: 0;
+            margin-top: 25px !important;
+        }
+
+        .voice-actor {
+            top: 0;
+            right: 0;
+            justify-content: flex-start;
+            font-size: 18px;
+            text-shadow: 0vw 0vw 0.391vw #fff, 0vw 0vw 0.391vw #fff, 0vw 0vw 0.391vw #fff, 0vw 0vw 0.391vw #fff, 0vw 0vw 0.391vw #fff, 0vw 0vw 2.93vw #fff, 0vw 0vw 2.93vw #fff, 0vw 0vw 5.859vw #fff, 0vw 0vw 5.859vw #fff, 0vw 0vw 5.859vw #fff;
+        }
+
+        .content {
+            width: 100%;
+            font-size: 12px;
+            font-weight: 400;
+            padding-right: 15px;
+            right: 0;
+            position: static;
+        }
     }
 }

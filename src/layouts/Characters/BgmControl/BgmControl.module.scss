@@ -22,6 +22,7 @@
         padding: 1px 33px 0 0;
         text-align: right;
         writing-mode: inherit;
+        
     }
 
     dd {
@@ -67,4 +68,22 @@
     font-weight: 300;
     font-size: 13px;
     margin-right: 12px;
+}
+
+
+@media screen and (max-width: 768.98px) {
+    .bgm {
+        left: 0;
+        flex-direction: column;
+        padding: 0 15px;
+        gap: 30px;
+        top: 80px;
+        dd, dt {
+            position: static;
+        }
+        dt {
+            text-align: left;
+            background: url(https://mememori-game.com/assets/en/img/gallery/bg_bgm.png)no-repeat left top / 100% 100%;
+        }
+    }
 }
