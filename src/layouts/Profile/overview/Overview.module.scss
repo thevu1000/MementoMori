@@ -38,6 +38,7 @@
         font-family: 'Cinzel';
         font-size: 2.5rem;
         margin-bottom: 30px;
+        font-weight: 700;
 
 
         &::after {
@@ -110,7 +111,8 @@
         font-family: 'Cinzel';
         font-size: 2.5rem;
         margin-bottom: 30px;
-
+        font-weight: 700;
+        
 
         &::after {
             content: "";
@@ -217,6 +219,8 @@
     .weapon-wrap {
         .weapon-header {
             font-size: 18px;
+            font-family: Cinzel;
+            font-weight: 700;
         }
         .weapon-header-wrap {
             flex-direction: column;
@@ -226,6 +230,7 @@
                 font-size: 10px;
                 position: absolute;
                 right: 5%;
+                width: 50%;
                 top: 50%;
                 transform: translateY(-100%);
                 .weapon-main {

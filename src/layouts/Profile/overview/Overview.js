@@ -106,17 +106,15 @@ function Overview({ datas }) {
                                     return (
                                         <p key={index}>
                                             <strong>(LV {level.level})</strong> {level.changes}
-                                            <span>
-                                                {level.unlock_condition === 'SSR' && (
-                                                    <span style={{fontWeight: 'bold' }}>(Mở khóa ở <span style={{ color: '#AA66CC', fontWeight: 'bold' }}>{level.unlock_condition}</span>)</span>
-                                                )}
-                                                {level.unlock_condition === 'UR' && (
-                                                    <span style={{fontWeight: 'bold' }}>(Mở khóa ở <span style={{ color: '#CF3B46', fontWeight: 'bold' }}>{level.unlock_condition}</span>)</span>
-                                                )}
-                                                {level.unlock_condition === 'LR' && (
-                                                    <span style={{fontWeight: 'bold' }}>(Mở khóa ở <span style={{ color: 'black', fontWeight: 'bold' , textShadow: '0px 0px 5px white'}}>{level.unlock_condition}</span>)</span>
-                                                )}
-                                            </span>
+                                            {level.unlock_condition === 'SSR' && (
+                                                <span style={{ fontWeight: 'bold' }}>(Mở khóa ở <span style={{ color: '#AA66CC', fontWeight: 'bold' }}>{level.unlock_condition}</span>)</span>
+                                            )}
+                                            {level.unlock_condition === 'UR' && (
+                                                <span style={{ fontWeight: 'bold' }}>(Mở khóa ở <span style={{ color: '#CF3B46', fontWeight: 'bold' }}>{level.unlock_condition}</span>)</span>
+                                            )}
+                                            {level.unlock_condition === 'LR' && (
+                                                <span style={{ fontWeight: 'bold' }}>(Mở khóa ở <span style={{ color: 'black', fontWeight: 'bold', textShadow: '0px 0px 5px white' }}>{level.unlock_condition}</span>)</span>
+                                            )}
                                         </p>
                                     );
                                 })}

@@ -6,7 +6,7 @@ import { getDatabase } from "firebase/database"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAcsDoaFIV889_S-zcYWmUNd6HUlMcuyok",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "mementomori-vn.firebaseapp.com",
   databaseURL: "https://mementomori-vn-default-rtdb.firebaseio.com",
   projectId: "mementomori-vn",

@@ -6,7 +6,20 @@ const cx = classNames.bind(styles);
 
 const BgmControl = ({ data }) => {
     const audioRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
+
+    // Khôi phục trạng thái từ localStorage khi component được render lần đầu
+    useEffect(() => {
+        const savedState = localStorage.getItem('bgmPlaying');
+        if (savedState === 'true') {
+            setIsPlaying(true);
+            if (audioRef.current) {
+                audioRef.current.play().catch(error => {
+                    console.error('Audio playback error:', error);
+                });
+            }
+        }
+    }, []);
 
     useEffect(() => {
         if (audioRef.current) {
@@ -21,6 +34,7 @@ const BgmControl = ({ data }) => {
                 console.error('Audio playback error:', error);
             });
         }
+        localStorage.setItem('bgmPlaying', 'true'); // Lưu trạng thái vào localStorage
     };
 
     const handlePause = () => {
@@ -29,6 +43,7 @@ const BgmControl = ({ data }) => {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
+        localStorage.setItem('bgmPlaying', 'false'); // Lưu trạng thái vào localStorage
     };
 
     return (
