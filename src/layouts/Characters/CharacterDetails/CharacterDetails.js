@@ -19,12 +19,17 @@ const CharacterDetails = ({ data }) => {
             <img src={data.image} alt="Character Image" />
             <div className={cx('character-text')}>
 
-                <div className={cx('ver-wrap')}>
+                <div
+                    className={cx('ver-wrap', {
+                        'has-ver': data.ver, // Thêm class này khi data.ver tồn tại
+                    })}
+                >
                     {data.ver && (
                         <p className={cx('ver-name')}>{data.ver}</p>
                     )}
                     <div className={cx('header')}>{data.name}</div>
                 </div>
+
 
                 <div className={cx('voice-actor')}>
                     <div className={cx('title')}>VOICE</div>
@@ -34,12 +39,12 @@ const CharacterDetails = ({ data }) => {
                 </div>
                 <div className={cx('youtube')}>
                     <a>
-                        <img src='https://mememori-game.com/assets/en/img/gallery/btn_youtube.png'/>
+                        <img src='https://mememori-game.com/assets/en/img/gallery/btn_youtube.png' />
                         <span>Youtube</span>
                     </a>
-                <Button to={`/profile/${data.id}`} className={cx('special-btn')}>
-                    CHI TIẾT
-                </Button>
+                    <Button to={`/profile/${data.id}`} className={cx('special-btn')}>
+                        CHI TIẾT
+                    </Button>
                 </div>
                 <div className={cx('content')}>
                     <p ref={contentParagraphRef}>
