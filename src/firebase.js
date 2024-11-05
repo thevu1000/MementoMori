@@ -9,11 +9,11 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: "https://mementomori-vn-default-rtdb.firebaseio.com",
-  projectId: "mementomori-vn",
-  storageBucket: "mementomori-vn.appspot.com",
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: "369747595092",
-  appId: "1:369747595092:web:61c7744dc3eae6d70642c1",
+  appId: "1:369747595092:web:ba500b668c684e800642c1"
 };
 
 // Initialize Firebase
