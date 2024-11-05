@@ -90,7 +90,7 @@ a {
 
 @font-face {
   font-family: Cinzel;
-  src: url('/assets/fonts/cinzel.woff2');
+  src: url('/assets/fonts/DVN-Cinzel-Bold.ttf');
 }
 
 @font-face {
@@ -712,6 +712,7 @@ a {
     width: 8.33333333%;
   }
   .col-lg-2 {
+    width: 226px;
     flex: 0 0 auto;
     width: 16.66666667%;
   }

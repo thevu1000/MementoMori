@@ -16,11 +16,8 @@
         flex-wrap: wrap;
         justify-content: center;
         margin-top: -4px;
-
-        a {
-            width: 120px;
-            height: 124px;
-        }
+        align-items: center;
+        flex-direction: column;
     }
 }
 
@@ -57,6 +54,7 @@
     display: flex;
     justify-content: center;
     padding-top: 16px;
+
     button {
         background-image: url("https://mememori-game.com/assets/en/img/top/btn_tab.png");
         background-size: cover;
@@ -68,7 +66,7 @@
         display: flex;
         justify-content: center;
         z-index: 1;
-        transition: background-image 0.3s ease;
+        transition: all 0.3s ease;
         cursor: pointer;
         margin-left: 60px;
         background-color: transparent;
@@ -83,21 +81,22 @@
 
 
 @media screen and (max-width: 768.98px) {
-    
+
     .profile-wrap {
         .tab {
             .row {
-                width: 100%!important;
+                width: 100% !important;
             }
         }
+
         button {
             margin-left: 0;
             font-size: 13px;
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-position: center;
-            height: 100%!important;
-            width: 100%!important;
+            height: 100% !important;
+            width: 100% !important;
             text-align: center;
             line-height: 45px;
         }
@@ -111,5 +110,5 @@
         }
     }
 
-    
+
 }

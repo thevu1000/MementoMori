@@ -1,5 +1,4 @@
-// Body.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { useLocation } from 'react-router-dom';
 import styles from './body.module.scss';
@@ -16,6 +15,11 @@ const cx = classNames.bind(styles);
 
 function Body() {
     const location = useLocation();
+    const [imageSrc, setImageSrc] = useState(
+        window.innerWidth <= 768
+            ? 'https://mememori-game.com/assets/en/img/top/img_section@sp.webp'
+            : 'https://mememori-game.com/assets/en/img/top/img_section.webp'
+    );
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -28,12 +32,25 @@ function Body() {
         }
     }, [location.search]);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setImageSrc(
+                window.innerWidth <= 768
+                    ? 'https://mememori-game.com/assets/en/img/top/img_section@sp.webp'
+                    : 'https://mememori-game.com/assets/en/img/top/img_section.webp'
+            );
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
             <Top id="top" />
             <img
                 className={cx('illus')}
-                src="https://mememori-game.com/assets/en/img/top/img_section.webp"
+                src={imageSrc}
                 alt=""
             />
             <Movie id="movie" />
@@ -42,7 +59,7 @@ function Body() {
             <Song id="song" />
             <Story id="story" />
             <Specical id="special" />
-            <Game id="game"/>
+            <Game id="game" />
         </div>
     );
 }

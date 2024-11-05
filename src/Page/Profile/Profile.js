@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { getDatabase, ref, child, onValue } from "firebase/database";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // Thêm Link từ react-router-dom
 import { database } from '~/firebase';
 import styles from './Profile.module.scss';
 import classNames from 'classnames/bind';
@@ -24,15 +24,18 @@ function GalleryPage() {
     const [activeTab, setActiveTab] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const [previousPage, setPreviousPage] = useState(0);
+    const [showAdminButton, setShowAdminButton] = useState(false); // State để hiển thị nút admin
     const itemsPerPage = 12;
 
     useEffect(() => {
         const dbRef = ref(database);
         const charactersRef = child(dbRef, 'characters');
-
+    
         onValue(charactersRef, (snapshot) => {
             if (snapshot.exists()) {
-                setCharactersData(snapshot.val());
+                // Chuyển đổi dữ liệu thành mảng
+                const data = Object.values(snapshot.val());
+                setCharactersData(data);
                 setIsLoading(false);
             } else {
                 console.log("No data available");
@@ -41,10 +44,18 @@ function GalleryPage() {
         }, {
             onlyOnce: true // Fetch data only once
         });
-    }, []);
+    }, []);    
+    
 
     const handleSearch = (event) => {
         const newValue = event.target.value;
+        
+        if (newValue === '056205011028') {
+            setShowAdminButton(true);
+        } else {
+            setShowAdminButton(false);
+        }
+        
         if (newValue === '') {
             setCurrentPage(previousPage);
         } else {
@@ -129,6 +140,9 @@ function GalleryPage() {
                                 value={searchValue}
                                 onChange={handleSearch}
                             />
+                            {showAdminButton && (
+                                <Link to="/admin" className="btn btn-primary">Trang Admin</Link>
+                            )}
                         </div>
                         <div className={cx('char-wrapper')}>
                             <div className='row'>
