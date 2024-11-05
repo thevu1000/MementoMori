@@ -8,7 +8,6 @@ import Gallery from './Gallery';
 import Voice from './Voice';
 import Song from './Song';
 import Story from './Story';
-import Specical from './Specical';
 import Game from './Game';
 
 const cx = classNames.bind(styles);
@@ -58,7 +57,6 @@ function Body() {
             <Voice id="voice" />
             <Song id="song" />
             <Story id="story" />
-            <Specical id="special" />
             <Game id="game" />
         </div>
     );

@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './header.module.scss';
 import NavItem from './NavItem';
+import { auth, signInWithGoogle, logOut } from "~/firebase"
 
 const cx = classNames.bind(styles);
 
@@ -34,6 +35,16 @@ function Header({ id }) {
       closeWrapRef.current.onclick = closeMenu;
     }
   }, []);
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+          setUser(currentUser);
+      });
+      return () => unsubscribe();
+  }, []);
+  if (user) {
+      console.log(user.uid);
+  }
 
   const navItems = [
     { id: 'top', text: 'TOP' },
@@ -67,6 +78,14 @@ function Header({ id }) {
                 />
               </li>
             ))}
+            {user ? (
+                    <div>
+                        <p>Xin chào, {user.displayName}</p>
+                        <button onClick={logOut}>Đăng xuất</button>
+                    </div>
+                ) : (
+                    <button onClick={signInWithGoogle}>Đăng nhập bằng Google</button>
+                )}
           </ul>
         </div>
         <div className={cx('openWrap')} ref={openWrapRef}>

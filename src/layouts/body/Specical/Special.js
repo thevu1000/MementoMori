@@ -27,7 +27,7 @@ function Special({id}) {
 
             <div className={cx('beginner-wrap')}>
                 <Button className={cx('beginner-btn')} href={'https://mememori-game.com/en/special/beginner/'}>
-                    <image src="https://mememori-game.com/assets/en/img/top/btn_beginner_active.png"/>
+                    <img src="https://mememori-game.com/assets/en/img/top/btn_beginner_active.png"/>
                 </Button>
             </div>
             </div>

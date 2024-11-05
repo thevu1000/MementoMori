@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function CharactersItem({ data, className }) {
     return (
-        <Button onClick={() => { window.scrollTo(0, 0); window.reload(); }} to={`/profile/${data.id}`} className={cx('character-wrap', className)}>
+        <Button to={`/profile/${data.id}`} className={cx('character-wrap', className)}>
             <img alt="/" src={`${data.avatar}`} className={cx('character-img')} />
         </Button>
 
